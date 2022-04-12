@@ -1,5 +1,11 @@
 import { createRouter, createWebHistory } from 'vue-router'
 import HomeView from '../views/HomeView.vue'
+import UserSignup from '../views/UserSignup.vue'
+import UserLogin from '../views/UserLogin.vue'
+import UserLogout from '../views/UserLogout.vue'
+import ProductsIndex from '../views/ProductsIndex.vue'
+import ProductsShow from '../views/ProductsShow.vue'
+import ProductsNew from '../views/ProductsNew.vue'
 
 const routes = [
   {
@@ -14,6 +20,36 @@ const routes = [
     // this generates a separate chunk (about.[hash].js) for this route
     // which is lazy-loaded when the route is visited.
     component: () => import(/* webpackChunkName: "about" */ '../views/AboutView.vue')
+  },
+  {
+    path: '/signup',
+    name: 'signup',
+    component: UserSignup
+  },
+  {
+    path: '/login',
+    name: 'login',
+    component: UserLogin
+  },
+  {
+    path: '/logout',
+    name: 'logout',
+    component: UserLogout
+  },
+  {
+    path: '/products',
+    name: 'products-index',
+    component: ProductsIndex
+  },
+  {
+    path: '/products/:id',
+    name: 'products-show',
+    component: ProductsShow
+  },
+  {
+    path: '/products/new',
+    name: 'products-new',
+    component: ProductsNew
   }
 ]
 
