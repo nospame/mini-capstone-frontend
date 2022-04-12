@@ -6,6 +6,7 @@ import UserLogout from '../views/UserLogout.vue'
 import ProductsIndex from '../views/ProductsIndex.vue'
 import ProductsShow from '../views/ProductsShow.vue'
 import ProductsNew from '../views/ProductsNew.vue'
+import ProductsEdit from '../views/ProductsEdit.vue'
 
 const routes = [
   {
@@ -50,6 +51,11 @@ const routes = [
     path: '/products/new',
     name: 'products-new',
     component: ProductsNew
+  },
+  {
+    path: '/products/:id/edit',
+    name: 'products-edit',
+    component: ProductsEdit
   }
 ]
 

@@ -18,12 +18,15 @@ export default {
           this.product = response.data;
         })
     },
-    destroyProduct: function () {
-      axios.delete(`/products/${this.product.id}.json`).
+    destroyProduct: function (product) {
+      axios.delete(`/products/${product.id}.json`).
         then(response => {
           console.log(response.data);
           this.$router.push('/products')
         })
+    },
+    editProduct: function (product) {
+      this.$router.push(`/products/${product.id}/edit`);
     }
   },
 };
@@ -32,13 +35,14 @@ export default {
 <template>
   <div class="products-show">
     <h1>{{ message }}</h1>
-    <img v-bind:src="product.images[0].url" style="max-width: 85%">
+    <img v-for="image in product.images" v-bind:src="image.url" style="max-width: 85%">
     <h2>{{ product.name }}</h2>
     <p>{{ product.description }}</p>
     <p>Price: ${{ product.price }}</p>
     <p>Tax: ${{ product.tax }}</p>
     <p>Total: ${{ product.total }}</p>
     <button v-on:click="destroyProduct(product)">Delete Product</button>
+    <button v-on:click="editProduct(product)">Edit Product</button>
   </div>
 </template>
 
