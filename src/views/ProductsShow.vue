@@ -17,6 +17,13 @@ export default {
           console.log(response.data);
           this.product = response.data;
         })
+    },
+    destroyProduct: function () {
+      axios.delete(`/products/${this.product.id}.json`).
+        then(response => {
+          console.log(response.data);
+          this.$router.push('/products')
+        })
     }
   },
 };
@@ -31,6 +38,7 @@ export default {
     <p>Price: ${{ product.price }}</p>
     <p>Tax: ${{ product.tax }}</p>
     <p>Total: ${{ product.total }}</p>
+    <button v-on:click="destroyProduct(product)">Delete Product</button>
   </div>
 </template>
 

@@ -25,6 +25,7 @@ export default {
 <template>
   <div class="products-index">
     <h1>{{ message }}</h1>
+    <router-link to="/products/new">Add a New Product</router-link>
     <div v-for="product in products">
       <img v-bind:src="product.images[0].url" style="max-width: 85%">
       <h3>{{ product.name }}</h3>
