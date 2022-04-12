@@ -29,6 +29,7 @@ export default {
       <img v-bind:src="product.images[0].url" style="max-width: 85%">
       <h3>{{ product.name }}</h3>
       <p>${{ product.price }}</p>
+      <router-link v-bind:to="`/products/${product.id}`">More Info</router-link>
       <hr>
     </div>
 
