@@ -7,6 +7,7 @@ import ProductsIndex from '../views/ProductsIndex.vue'
 import ProductsShow from '../views/ProductsShow.vue'
 import ProductsNew from '../views/ProductsNew.vue'
 import ProductsEdit from '../views/ProductsEdit.vue'
+import CartView from '../views/CartView.vue'
 
 const routes = [
   {
@@ -56,6 +57,11 @@ const routes = [
     path: '/products/:id/edit',
     name: 'products-edit',
     component: ProductsEdit
+  },
+  {
+    path: '/cart',
+    name: 'cart-view',
+    component: CartView
   }
 ]
 
