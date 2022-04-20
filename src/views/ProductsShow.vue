@@ -4,7 +4,8 @@ export default {
   data: function () {
     return {
       message: "Welcome to the Product Show",
-      product: {}
+      product: {},
+      cartedProductParams: {}
     };
   },
   created: function () {
@@ -27,6 +28,14 @@ export default {
     },
     editProduct: function (product) {
       this.$router.push(`/products/${product.id}/edit`);
+    },
+    createCartedProduct: function (product) {
+      this.cartedProductParams.product_id = product.id
+      axios.post('/carted_products.json', this.cartedProductParams)
+        .then(response => {
+          console.log(response.data)
+          this.$router.push('/cart')
+        })
     }
   },
 };
@@ -41,6 +50,8 @@ export default {
     <p>Price: ${{ product.price }}</p>
     <p>Tax: ${{ product.tax }}</p>
     <p>Total: ${{ product.total }}</p>
+    Quantity: <input type="number" v-model="cartedProductParams.quantity">
+    <button v-on:click="createCartedProduct(product)">Add to Cart</button><br />
     <button v-on:click="destroyProduct(product)">Delete Product</button>
     <button v-on:click="editProduct(product)">Edit Product</button>
   </div>
