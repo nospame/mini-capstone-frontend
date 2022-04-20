@@ -3,7 +3,7 @@
 export default {
   data: function () {
     return {
-      message: "Shopping Cart",
+      message: "Shop",
       cartedProducts: []
     };
   },
@@ -16,8 +16,8 @@ export default {
         .then(response => {
           console.log(response.data)
           this.cartedProducts = response.data
-        }
-        )
+          this.message = this.cartedProducts.length === 0 ? "Shopping Cart is Empty" : "Shopping Cart"
+        })
     },
     updateCartedProduct: function (cartedProduct) {
       axios.patch(`/carted_products/${cartedProduct.id}.json`, cartedProduct)

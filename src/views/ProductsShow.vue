@@ -5,7 +5,7 @@ export default {
     return {
       message: "Welcome to the Product Show",
       product: {},
-      cartedProductParams: {}
+      cartedProductParams: { quantity: 1 }
     };
   },
   created: function () {
